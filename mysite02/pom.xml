@@ -1,19 +1,32 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.douzone</groupId>
-    <artifactId>mysite</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <artifactId>mysite02</artifactId>
-  <packaging>war</packaging>
-  
-  	<dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.douzone</groupId>
+		<artifactId>mysite</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>mysite02</artifactId>
+	<packaging>war</packaging>
+
+	<dependencies>
+
+		<!-- jstl -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- mariadb jdbc -->
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
 			<artifactId>mariadb-java-client</artifactId>
 			<version>2.7.2</version>
-		</dependency>	
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
@@ -28,7 +41,7 @@
 					<username>admin</username>
 					<password>manager</password>
 				</configuration>
-			</plugin>			
+			</plugin>
 		</plugins>
-	</build>  
+	</build>
 </project>
