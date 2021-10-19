@@ -59,7 +59,7 @@
 							<c:choose>
 								<c:when test="${vo.depth eq 0 }">
 									<td style="text-align: left; padding-left: 0px"><a
-										href="${pageContext.servletContext.contextPath }/board?a=viewform&no=${vo.no }">${vo.title }</a></td>
+										href="${pageContext.servletContext.contextPath }/board?a=view&no=${vo.no }">${vo.title }</a></td>
 								</c:when>
 								<c:otherwise>
 									<td style="text-align:left; padding-left:${20 * vo.depth }px"><img

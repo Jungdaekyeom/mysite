@@ -20,6 +20,7 @@ public class ViewAction implements Action {
 		// 내가 여기서 받고 싶은 것은, URL에서 넘어온 no
 		Long no = Long.parseLong(request.getParameter("no"));
 		BoardVo vo = new BoardDao().findByNo(no);
+		System.out.println(vo);
 		request.setAttribute("vo", vo);
 
 		MvcUtil.forward("board/view", request, response);
