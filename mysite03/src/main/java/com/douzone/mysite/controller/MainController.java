@@ -1,17 +1,83 @@
 package com.douzone.mysite.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MainController {
 
+	// @Auth(test=false) : Auth에서 디폴트를 false로 준다면 사용 가능
+	// @Auth("USER") : USER로 접속한 사람만 사용 가능
+	// @Auth("ADMIN") : ADMIN으로 접속한 사람만 사용 가능
+	// @Auth("USER") : Auth.java에서 함수이름을 value로 주면 value라는 이름을 주지 않아도 사용 가능
+	// @Auth(role = "ADMIN") // Auth.java에서 디폴트값으로 정의한 값( public String role()
+	// default "USER"; )이 괄호 안에 들어감.
+//	@RequestMapping({ "", "/main" })
+//	public String index() {
+//		return "main/index";
+//	}
+//
+//	@ResponseBody
+//	@RequestMapping("/msg01")
+//	public String message01() {
+//		return "안녕";
+//	}
+//
+//	@ResponseBody
+//	@RequestMapping("/msg02")
+//	public Object message02(/* HttpServletResponse resp */) throws Exception {
+////		resp.setContentType("application/json; charset=UTF-8");
+////		resp.getWriter().print("{message:\"Hello World\"}");
+//		Map<String, Object> map = new HashMap<>();
+//		map.put("message", "Hello World");
+//
+//		return map;
+//	}
+//
+//	@RequestMapping("/hello")
+//	public void message(HttpServletResponse resp) throws Exception {
+//		resp.setContentType("application/json; charset=UTF-8");
+//		// 이 부분에서 JSON 포맷으로 응답하면 끝
+//		resp.getWriter().print("{message:\"Hello World\"}");
+//	}
+//
+//	@ResponseBody
+//	@RequestMapping("/hello")
+//	public Object message(/* HttpServletResponse resp */) throws Exception {
+////		resp.setContentType("application/json; charset=UTF-8");
+////		resp.getWriter().print("{message:\"Hello World\"}");
+//		Map<String, Object> map = new HashMap<>();
+//		map.put("message", "Hello World");
+//
+//		return map;
+//	}
+
 	@RequestMapping({ "", "/main" })
 	public String index() {
-
-		// spring-servlet.xml에서 ViewResolver 설정 후
-		// return "/WEB-INF/views/main/index.jsp"; 를 다음과 같이 바꿀 수 있다.
 		return "main/index";
 	}
-	
+
+	@ResponseBody
+	@RequestMapping("/msg01")
+	public String message01() {
+		return "안녕";
+	}
+
+	@ResponseBody
+	@RequestMapping("/msg02")
+	public Object message02(/* HttpServletResponse resp */) throws Exception {
+		// resp.setContentType("application/json; charset=UTF-8");
+		// resp.getWriter().print("{\"message\":\"Hello World\"}");
+
+		Map<String, Object> map = new HashMap<>();
+		map.put("message", "Hello World");
+
+		return map;
+	}
 }

@@ -8,12 +8,15 @@ import com.douzone.mysite.vo.UserVo;
 
 @Service
 public class UserService {
-
 	@Autowired
 	private UserRepository userRepository;
 
 	public void join(UserVo vo) {
 		userRepository.insert(vo);
+	}
+
+	public UserVo getUser(String email) {
+		return userRepository.findByEmail(email);
 	}
 
 	public UserVo getUser(Long no) {

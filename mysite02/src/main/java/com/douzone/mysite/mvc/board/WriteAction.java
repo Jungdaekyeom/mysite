@@ -19,20 +19,24 @@ public class WriteAction implements Action {
 		String contents = request.getParameter("contents");
 		// 쓰는 당시에는 userno(이 앞페이지에선 authUser)가 맞음
 		String userNo = request.getParameter("userno");
+		String maxGroupNo = request.getParameter("g");
+
+		System.out.println(maxGroupNo);
 
 		BoardVo vo = new BoardVo();
 		vo.setTitle(title);
 		vo.setContents(contents);
 		// user번호를 받아와야 함
 		// 문자열을 long으로 형변환
+		vo.setGroupNo(Long.parseLong(maxGroupNo));
 		vo.setUserNo(Long.parseLong(userNo));
-
-		// 메인화면의 글쓰기
+		vo.setDepth(Long.parseLong("0"));
+		
 		new BoardDao().insert(vo);
 
-		// 글을 쓴 순간에는, 자신의 글이 최상단에 있을 것이므로 p=1을 돌려줌
-		MvcUtil.redirect(request.getContextPath() + "/board?a=list&p=1&sec=1",
-				request, response);
+		// 새 글을 쓴 순간에는, 자신의 글이 최상단에 있을 것이므로 p=1을 돌려줌
+
+		MvcUtil.redirect(request.getContextPath() + "/board?a=list&p=1&sec=1", request, response);
 
 	}
 

@@ -19,9 +19,17 @@ public class ViewAction implements Action {
 
 		// 내가 여기서 받고 싶은 것은, URL에서 넘어온 no
 		Long no = Long.parseLong(request.getParameter("no"));
+		Long page = Long.parseLong(request.getParameter("p"));
+		Long section = Long.parseLong(request.getParameter("sec"));
 		BoardVo vo = new BoardDao().findByNo(no);
-		System.out.println(vo);
+		// 조회수 카운팅을 위한 또 다른 객체
+		BoardVo vo2 = new BoardDao().hitCountUp(no, vo.getHit());
+
 		request.setAttribute("vo", vo);
+		request.setAttribute("vo2", vo2);
+
+		request.setAttribute("p", page);
+		request.setAttribute("sec", section);
 
 		MvcUtil.forward("board/view", request, response);
 

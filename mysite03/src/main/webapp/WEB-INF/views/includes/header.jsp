@@ -4,24 +4,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div id="header">
-	<h1><a href="${pageContext.request.contextPath }">MySite</h1>
+	<h1>MySite</h1>
 	<ul>
 		<c:choose>
 			<c:when test="${empty authUser }">
-				<li><a
-					href="${pageContext.request.contextPath }/user/login">로그인</a>
+				<li><a href="${pageContext.request.contextPath }/user/login">로그인</a>
 				<li>
-				<li><a
-					href="${pageContext.request.contextPath }/user/join">회원가입</a>
+				<li><a href="${pageContext.request.contextPath }/user/join">회원가입</a>
 				<li>
 			</c:when>
 			<c:otherwise>
-				<li><a
-					href="${pageContext.request.contextPath }/user/update">회원정보수정</a>
+				<li><a href="${pageContext.request.contextPath }/user/update">회원정보수정</a>
 				<li>
 				<li><a href="${pageContext.request.contextPath }/user/logout">로그아웃</a>
 				<li>
-				<li>${authUser.name }님 안녕하세요 ^^;</li>
+				<li>${authUser.name }님안녕하세요 ^^;</li>
 			</c:otherwise>
 		</c:choose>
 	</ul>

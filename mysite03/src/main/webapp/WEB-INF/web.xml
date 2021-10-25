@@ -41,6 +41,7 @@
 	</servlet-mapping>	
 	
 	<!-- 공통 에러 페이지 -->
+	<!-- 스프링에서는 에러 처리를 위해 해당 구조를 사용 -->
 	<error-page>
 		<error-code>404</error-code>
 		<location>/WEB-INF/views/error/404.jsp</location>

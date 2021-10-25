@@ -41,11 +41,15 @@ pageContext.setAttribute("newline", "\n");
 				</table>
 				<div class="bottom">
 					<a
-						href="${pageContext.servletContext.contextPath }/board?a=list&p=1&sec=1">글목록</a>
+						href="${pageContext.servletContext.contextPath }/board?a=list&p=${p }&sec=${sec}">글목록</a>
+					<a
+						href="${pageContext.servletContext.contextPath }/board?a=writeform&c=1&no=${vo.no}&p=${p }&sec=${sec}">답글달기</a>
 					<c:choose>
 						<c:when test="${authUser.no eq vo.userNo }">
 							<a
-								href="${pageContext.servletContext.contextPath }/board?a=modify&userno=${vo.userNo}">글수정</a>
+								href="${pageContext.servletContext.contextPath }/board?a=modifyform&no=${vo.no}&p=${p }&sec=${sec}">글수정</a>
+							<a
+								href="${pageContext.servletContext.contextPath }/board?a=delete&no=${vo.no}&p=${p }&sec=${sec}">글삭제</a>
 						</c:when>
 					</c:choose>
 				</div>

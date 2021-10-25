@@ -7,7 +7,8 @@
 <div id="navigation">
 	<ul>
 		<li><a href="${pageContext.request.contextPath }">정대겸</a></li>
-		<li><a href="${pageContext.request.contextPath }/guestbook?a=list">방명록</a></li>
-		<li><a href="${pageContext.request.contextPath }/board?a=list&p=1&sec=1">게시판</a></li>
+		<li><a href="${pageContext.request.contextPath }/guestbook">방명록</a></li>
+		<li><a href="${pageContext.request.contextPath }/board">게시판</a></li>
+		<li><a href="${pageContext.request.contextPath }/gallery">갤러리</a></li>
 	</ul>
 </div>

@@ -20,10 +20,8 @@ pageContext.setAttribute("newline", "\n");
 		<c:import url="/WEB-INF/views/includes/header.jsp" />
 		<div id="content">
 			<div id="guestbook">
-				<form action="${pageContext.request.contextPath }/guestbook"
-					method="post">
-					<input type="hidden" name="a" value="add">
-					<table>
+				<form action="${pageContext.request.contextPath }/add" method="post">
+					<table border=1 width=500>
 						<tr>
 							<td>이름</td>
 							<td><input type="text" name="name"></td>
@@ -31,32 +29,44 @@ pageContext.setAttribute("newline", "\n");
 							<td><input type="password" name="password"></td>
 						</tr>
 						<tr>
-							<td colspan=4><textarea name="message" id="content"></textarea></td>
+							<td colspan=4><textarea name="message" cols=60 rows=5></textarea></td>
 						</tr>
 						<tr>
-							<td colspan=4 align=right><input type="submit" VALUE="확인 "></td>
+							<td colspan=4 align=right><input type="submit" VALUE="등록"></td>
 						</tr>
 					</table>
 				</form>
-				<ul>
-					<c:set var='count' value='${fn:length(list) }' />
-					<c:forEach items='${list }' var='vo' varStatus='status'>
-						<li>
-							<table>
-								<tr>
-									<td>[${count-status.index }]</td>
-									<td>${vo.name }</td>
-									<td>${vo.regDate }</td>
-									<td><a
-										href="${pageContext.request.contextPath }/guestbook?a=deleteform&no=${vo.no }">삭제</a></td>
-								</tr>
-								<tr>
-									<td colspan=4>${fn:replace(vo.message, newline, "<br/>") }
-									</td>
-								</tr>
-							</table> <br>
-						</li>
-					</c:forEach>
+
+				<!-- jstl문 -->
+				<c:set var='count' value='${fn:length(list) }' />
+				<c:forEach items='${list }' var='vo' varStatus='status'>
+					<br>
+					<form action="${pageContext.request.contextPath }/delete/${vo.no }"
+						method="post">
+						<table width=510 border=1>
+							<tr>
+								<td align=right width="200">No</td>
+								<td>[${count-status.index }]</td>
+							</tr>
+							<tr>
+							<tr>
+								<td align=right width="200">Name</td>
+								<td>${vo.name }</td>
+							</tr>
+							<tr>
+								<td align=right width="200">Date</td>
+								<td>${vo.regDate }</td>
+							</tr>
+							<tr>
+								<td align=right width="200">Message</td>
+								<td>${fn:replace(vo.message, newLine, "<br/>") }</td>
+							</tr>
+							<tr>
+								<td align=right width="200">삭제</td>
+								<td><input type="submit" value="삭제"></td>
+							</tr>
+						</table>
+				</c:forEach>
 				</ul>
 			</div>
 		</div>
