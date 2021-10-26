@@ -3,8 +3,9 @@ package com.douzone.mysite.controller;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.ServletContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -57,9 +58,21 @@ public class MainController {
 //
 //		return map;
 //	}
+	
+	// 용수에게 물어보쟈!
+	@Autowired
+	ServletContext servletContext;
 
 	@RequestMapping({ "", "/main" })
 	public String index() {
+		// site를 내놔
+		SiteVo site = servletContext.getAttribute("site");
+		
+		if(site == null) {
+			SiteVo vo = siteService.getSite();
+			servletContext.setAttribute("site", vo);
+		}
+		
 		return "main/index";
 	}
 

@@ -1,12 +1,29 @@
 package com.douzone.mysite.vo;
 
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+
 public class UserVo {
 	private Long no;
+	
+	// validation
+	// 바인딩 될 때의 조건들
+	@NotEmpty
+	@Length(min=2, max=8)
 	private String name;
+	
+	@NotEmpty
+	@Email // 정규표현식 대신 hibernate로 대체해서 씀
 	private String email;
+	
+	@NotEmpty
+	@Length(min=4, max=16)
 	private String password;
 	private String gender;
 	private String joinDate;
+	// 이게 뭐지?
 	private String role;
 
 	public Long getNo() {

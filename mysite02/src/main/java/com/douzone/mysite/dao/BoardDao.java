@@ -108,7 +108,7 @@ public class BoardDao {
 			String sql = "select b.no, a.name, b.title, b.contents, b.hit, "
 					+ " date_format(b.reg_date, '%Y/%m/%d %H:%i:%s') as reg_date, "
 					+ " b.group_no, b.order_no, b.depth, b.user_no, b.delete_bool "
-					+ " from user a join board b on a.no = b.user_no where b.delete_bool = 1 " + " and " + searchType
+					+ " from user a join board b on a.no = b.user_no where b.delete_bool = 1 and " + searchType
 					+ " like ? order by b.group_no desc, b.order_no asc limit ?, ?";
 
 			pstmt = conn.prepareStatement(sql);

@@ -36,8 +36,7 @@
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
 	
-	 
-
+    <!-- 이 부분을 자바로 할 수도 있다. -->
 	<context:annotation-config />
 	<context:component-scan	base-package="com.douzone.mysite.service, com.douzone.mysite.repository, com.douzone.mysite.aspect">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" />
