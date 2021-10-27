@@ -25,12 +25,16 @@ public class BoardRepository {
 	public List<BoardVo> findAllByTen(Long startPost) {
 		return sqlSession.selectList("board.findAllByTen", startPost);
 	}
-	
+
 	public BoardVo findByNo(Long no) {
-		return sqlSession.selectOne("board.view", no);
+		return sqlSession.selectOne("board.findByNo", no);
 	}
-	
+
+	public Long hitCountUp(Long no) {
+		return sqlSession.selectOne("board.hitCountUp", no);
+	}
+
 	public Long delete(Long no) {
-		return sqlSession.selectOne("board.delete");
+		return sqlSession.selectOne("board.delete", no);
 	}
 }

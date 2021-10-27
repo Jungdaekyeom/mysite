@@ -18,21 +18,23 @@ public class BoardService {
 		return boardRepository.findAll();
 	}
 
-	public Long maxGroupNo(){
+	public Long maxGroupNo() {
 		return boardRepository.maxGroupNo();
 	}
-	
-	public List<BoardVo> findAllByTen(Long page){
-		
+
+	public List<BoardVo> findAllByTen(Long page) {
 		Long startPost = (page - 1) * 10;
-		System.out.println(page);
 		return boardRepository.findAllByTen(startPost);
 	}
-	
+
 	public BoardVo findByNo(Long no) {
 		return boardRepository.findByNo(no);
 	}
-	
+
+	public Long hitCountUp(Long no) {
+		return boardRepository.hitCountUp(no);
+	}
+
 	public Long delete(Long no) {
 		return boardRepository.delete(no);
 	}

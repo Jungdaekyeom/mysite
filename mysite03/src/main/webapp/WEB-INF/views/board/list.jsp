@@ -44,7 +44,7 @@
 								<c:when test="${vo.depth eq 0 }">
 									<c:if test="${vo.deleteBool eq 1 }">
 										<td style="text-align: left; padding-left: 0px">
-											<a href="${pageContext.servletContext.contextPath }/board?a=view&no=${vo.no}&hit=${vo.hit }&p=${param.p}&sec=${param.sec}">${vo.title }</a></td>
+											<a href="${pageContext.servletContext.contextPath }/board/view/${vo.no }?&p=${param.p}&sec=${param.sec}">${vo.title }</a></td>
 									</c:if>
 									<c:if test="${vo.deleteBool eq 0 }">
 										<td style="text-align: left; padding-left: 0px">삭제된 메시지입니다.</td>
@@ -54,7 +54,7 @@
 									<c:if test="${vo.deleteBool eq 1 }">
 										<td style="text-align:left; padding-left:${20 * vo.depth }px"><img
 											src='${pageContext.servletContext.contextPath }/assets/images/reply.png' /><a
-											href="${pageContext.servletContext.contextPath }/board?a=view&no=${vo.no }&hit=${vo.hit }&p=${param.p}&sec=${param.sec}">${vo.title }</a></td>
+											href="${pageContext.servletContext.contextPath }/board/view/${vo.no }?p=${param.p}&sec=${param.sec}">${vo.title }</a></td>
 									</c:if>
 									<c:if test="${vo.deleteBool eq 0 }">
 										<td style="text-align:left; padding-left:${20 * vo.depth }px">
@@ -67,10 +67,12 @@
 							<td>${vo.userName }</td>
 							<td>${vo.hit }</td>
 							<td>${vo.regDate }</td>
+							
+							<!-- delete -->
 							<c:if
 								test="${(vo.deleteBool eq 1) && (authUser.no eq vo.userNo)}">
 								<td><a
-									href="${pageContext.servletContext.contextPath }/board?a=delete&no=${vo.no }&p=${param.p }&sec=${param.sec}"
+									href="${pageContext.servletContext.contextPath }/board/delete/${vo.no }?p=${param.p }&sec=${param.sec}"
 									class="del">삭제</a></td>
 							</c:if>
 						</tr>
@@ -112,7 +114,7 @@
 
 								<c:if test="${total - (50*(param.sec-1)) > 50}">
 									<li><a
-										href="${pageContext.request.contextPath }/board?p=${(param.sec * 5)+1}&sec=${param.sec + 1}">▶</a></li>
+										href="${pageContext.request.contextPath }/board?p=${(param.sec * 5) + 1}&sec=${param.sec + 1}">▶</a></li>
 								</c:if>
 							</c:otherwise>
 						</c:choose>
@@ -120,7 +122,7 @@
 				</div>
 				<div class="bottom">
 					<a
-						href="${pageContext.request.contextPath }/board?a=writeform&c=0"
+						href="${pageContext.request.contextPath }/board?writeform&c=0"
 						id="new-book">글쓰기</a>
 				</div>
 			</div>

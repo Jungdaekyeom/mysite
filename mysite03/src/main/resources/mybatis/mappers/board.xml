@@ -34,15 +34,37 @@
 
 	<select id="findByNo" parameterType="long" resultType="boardvo">
 		<![CDATA[
-		select no, title, contents, hit, reg_date, group_no, order_no, depth, user_no, delete_bool from board where no=#{no }		
+		select
+			no, 
+			title, 
+			contents, 
+			hit, 
+			reg_date as regDate, 
+			group_no as groupNo, 
+			order_no as orderNo, 
+			depth as depth, 
+			user_no as userNo, 
+			delete_bool as deleteBool 
+		from board where no=#{no }		
 		]]>
 	</select>
 	
-	<delete id="delete" parameterType="Long">
+	<select id="hitCountUp" parameterType="long">
 		<![CDATA[
-			delete from board where no=#{no }
+		update board set hit = hit + 1 where no=#{no }		
 		]]>
-	</delete>
+	</select>
+
+	<update id="delete" parameterType="Long">
+		<![CDATA[
+			update board set delete_bool = 0 where no=#{no }
+		]]>
+	</update>
+	
+	
+	
+	
+	
 
 	<insert id="insert" parameterType="boardvo">
 		<choose>

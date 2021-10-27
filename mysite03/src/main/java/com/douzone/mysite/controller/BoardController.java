@@ -35,20 +35,28 @@ public class BoardController {
 	}
 
 	// 보기만 할건데 이 url을 다 요구할 필요가 있나?
-	@RequestMapping("/view/{no}/{hit}/{p}/{sec}")
-	public String view(@PathVariable(value = "no", required = true) Long no,
-			@PathVariable(value = "hit", required = true) Long hit,
-			@PathVariable(value = "p", required = true) Long page,
-			@PathVariable(value = "sec", required = true) Long section, Model model) {
+	@RequestMapping("/view/{no}")
+	public String view(@PathVariable("no") Long no,
+			@RequestParam(value = "p", required = true, defaultValue = "1") Long page,
+			@RequestParam(value = "sec", required = true, defaultValue = "1") Long section, 
+			Model model) {
 
-		BoardVo boardVo = boardService.findByNo(no);
-		model.addAttribute("boardVo", boardVo);
+		BoardVo vo = boardService.findByNo(no);
+		boardService.hitCountUp(no); // 조회수 올리기용
+
+		model.addAttribute("vo", vo);
+		model.addAttribute("p", page);
+		model.addAttribute("sec", section);
+
 		return "board/view";
 	}
 
 	@RequestMapping("/delete/{no}")
-	public String delete(@RequestParam(value="no", required=true) Long no) {
-		return 
+	public String delete(@PathVariable("no") Long no,
+			@RequestParam(value = "p", required = true, defaultValue = "1") Long page,
+			@RequestParam(value = "sec", required = true, defaultValue = "1") Long section) {
+		boardService.delete(no);
+		return "redirect:/board?p=" + page + "&sec=" + section;
 	}
 
 }
