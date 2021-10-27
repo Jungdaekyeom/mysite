@@ -21,11 +21,11 @@ public class AdminController {
 		return "admin/main";
 	}
 
-	@RequestMapping("/main/update")
-	public String main(SiteVo siteVo) {
-		siteService.update(siteVo);
-		return "admin/main";
-	}
+//	@RequestMapping("/main/update")
+//	public String main(SiteVo siteVo) {
+//		siteService.update(siteVo);
+//		return "admin/main";
+//	}
 
 	@RequestMapping("/guestbook")
 	public String guestbook() {

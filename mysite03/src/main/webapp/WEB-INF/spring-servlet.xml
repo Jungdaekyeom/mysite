@@ -13,6 +13,8 @@
 		http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context.xsd">
+		
+	<!-- spring-servlet.xml : 웹 관련 -->	
 	<!-- auto proxy -->
 	<aop:aspectj-autoproxy />
 
@@ -49,6 +51,7 @@
 
 	<!-- Interceptor -->
 	<!-- "/user/auth" : 로그인 url -->
+
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/user/auth" />

@@ -65,13 +65,13 @@ public class MainController {
 
 	@RequestMapping({ "", "/main" })
 	public String index() {
-		// site를 내놔
-		SiteVo site = servletContext.getAttribute("site");
-		
-		if(site == null) {
-			SiteVo vo = siteService.getSite();
-			servletContext.setAttribute("site", vo);
-		}
+//		// site를 내놔
+//		SiteVo site = servletContext.getAttribute("site");
+//		
+//		if(site == null) {
+//			SiteVo vo = siteService.getSite();
+//			servletContext.setAttribute("site", vo);
+//		}
 		
 		return "main/index";
 	}

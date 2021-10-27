@@ -18,7 +18,6 @@ public class ListAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		Long pageNo = Long.parseLong(request.getParameter("p"));
-
 		Long startPost = (pageNo - 1) * 10;
 		// 해헿 재밌당ㅋ
 		Long endPost = Long.parseLong("10");

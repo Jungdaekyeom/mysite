@@ -1,17 +1,21 @@
 package com.douzone.mysite.vo;
 
 public class BoardVo {
+
 	private Long no;
 	private String title;
 	private String contents;
+	private Long hit;
 	private String regDate;
-	private Integer hit;
-	private Integer groupNo;
-	private Integer orderNo;
-	private Integer depth;
+	private Long groupNo;
+	private Long orderNo;
+	private Long depth;
 	private Long userNo;
+	// 유저 이름을 갖고 오기 위한 조인용으로 추가
 	private String userName;
-	
+	// DB전체 갯수를 갖고옴
+	private Long deleteBool;
+
 	public Long getNo() {
 		return no;
 	}
@@ -36,6 +40,14 @@ public class BoardVo {
 		this.contents = contents;
 	}
 
+	public Long getHit() {
+		return hit;
+	}
+
+	public void setHit(Long hit) {
+		this.hit = hit;
+	}
+
 	public String getRegDate() {
 		return regDate;
 	}
@@ -44,35 +56,27 @@ public class BoardVo {
 		this.regDate = regDate;
 	}
 
-	public Integer getHit() {
-		return hit;
-	}
-
-	public void setHit(Integer hit) {
-		this.hit = hit;
-	}
-
-	public Integer getGroupNo() {
+	public Long getGroupNo() {
 		return groupNo;
 	}
 
-	public void setGroupNo(Integer groupNo) {
+	public void setGroupNo(Long groupNo) {
 		this.groupNo = groupNo;
 	}
 
-	public Integer getOrderNo() {
+	public Long getOrderNo() {
 		return orderNo;
 	}
 
-	public void setOrderNo(Integer orderNo) {
+	public void setOrderNo(Long orderNo) {
 		this.orderNo = orderNo;
 	}
 
-	public Integer getDepth() {
+	public Long getDepth() {
 		return depth;
 	}
 
-	public void setDepth(Integer depth) {
+	public void setDepth(Long depth) {
 		this.depth = depth;
 	}
 
@@ -92,10 +96,19 @@ public class BoardVo {
 		this.userName = userName;
 	}
 
+	public Long getDeleteBool() {
+		return deleteBool;
+	}
+
+	public void setDeleteBool(Long deleteBool) {
+		this.deleteBool = deleteBool;
+	}
+
 	@Override
 	public String toString() {
-		return "BoardVo [no=" + no + ", title=" + title + ", contents=" + contents + ", regDate=" + regDate + ", hit="
-				+ hit + ", groupNo=" + groupNo + ", orderNo=" + orderNo + ", depth=" + depth + ", userNo=" + userNo
-				+ ", userName=" + userName + "]";
+		return "BoardVo [no=" + no + ", title=" + title + ", contents=" + contents + ", hit=" + hit + ", regDate="
+				+ regDate + ", groupNo=" + groupNo + ", orderNo=" + orderNo + ", depth=" + depth + ", userNo=" + userNo
+				+ ", userName=" + userName + ", deleteBool=" + deleteBool + "]";
 	}
+
 }
