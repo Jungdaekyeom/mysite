@@ -22,7 +22,7 @@ public class DeleteAction implements Action {
 
 		request.setAttribute("vo", vo);
 
-		MvcUtil.redirect(request.getContextPath() + "/board?p=" + page + "&sec=" + section, request, response);
+		MvcUtil.redirect(request.getContextPath() + "/board?a=list&p=" + page + "&sec=" + section, request, response);
 	}
 
 }
