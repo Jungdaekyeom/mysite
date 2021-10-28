@@ -5,9 +5,10 @@
 	version="3.0">
 	<display-name>mysite04</display-name>
 
+	<!-- mysite04로 변경하며 수정한 부분 확인 -->
 	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/applicationContext.xml</param-value>
+		<param-name>contextClass</param-name>
+		<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
 	</context-param>
 
 	<!-- ContextLoad Listener -->
