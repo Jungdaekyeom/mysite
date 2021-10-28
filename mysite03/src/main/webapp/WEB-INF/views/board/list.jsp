@@ -108,9 +108,16 @@
 						</c:choose>
 					</ul>
 				</div>
-				<div class="bottom">
-					<a href="${pageContext.request.contextPath }/board/write/0?m=${maxGroupNo }" id="new-book">글쓰기</a>
-				</div>
+				<c:if test="${authUser.no ne null  }">
+					<div class="bottom">
+						<a href="${pageContext.request.contextPath }/board/write/0?m=${maxGroupNo }" id="new-book">글쓰기</a>
+					</div>
+				</c:if>
+				<c:if test="${empty authUser }">
+					<div class="bottom">
+						<a href="${pageContext.request.contextPath }/user/login" id="new-book">글쓰기</a>
+					</div>
+				</c:if>
 			</div>
 		</div>
 		<c:import url="/WEB-INF/views/includes/navigation.jsp" />

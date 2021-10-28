@@ -62,6 +62,7 @@ public class GalleryService {
 	}
 	
 	private String generateSaveFilename(String extName) {
+		
 		String filename = "";
 		
 		Calendar calendar = Calendar.getInstance();

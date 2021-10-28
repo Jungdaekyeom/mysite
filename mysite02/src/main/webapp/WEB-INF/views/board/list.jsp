@@ -137,12 +137,19 @@
 						</c:choose>
 					</ul>
 				</div>
-				<div class="bottom">
-					<a
-						href="${pageContext.request.contextPath }/board?a=writeform&c=0&g=${maxGroupNo }"
-						id="new-book">글쓰기</a>
-				</div>
-
+										
+				<c:choose>
+					<c:when test="${authUser.no eq vo.userNo}">
+						<div class="bottom">
+							<a href="${pageContext.request.contextPath }/board?a=writeform&c=0&g=${maxGroupNo }" id="new-book">글쓰기</a>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<div class="bottom">
+							<a href="${pageContext.request.contextPath }/user?a=loginform" id="new-book">글쓰기</a>
+						</div>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 		<c:import url="/WEB-INF/views/includes/navigation.jsp" />

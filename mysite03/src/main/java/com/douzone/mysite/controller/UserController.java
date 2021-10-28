@@ -26,7 +26,6 @@ public class UserController {
 		return "user/join";
 	}
 	
-
 	// Validation 추가
 	// 회원가입 시에 제약을 주기 위해서 해당 것들을 제작
 	// 바인딩이 된 vo들을 갖고옴(@Valid)
