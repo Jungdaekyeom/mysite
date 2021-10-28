@@ -35,7 +35,6 @@ public class WriteAction implements Action {
 		new BoardDao().insert(vo);
 
 		// 새 글을 쓴 순간에는, 자신의 글이 최상단에 있을 것이므로 p=1을 돌려줌
-
 		MvcUtil.redirect(request.getContextPath() + "/board?a=list&p=1&sec=1", request, response);
 
 	}

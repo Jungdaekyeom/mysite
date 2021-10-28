@@ -14,18 +14,6 @@
 		<c:import url="/WEB-INF/views/includes/header.jsp" />
 		<div id="content">
 			<div id="board">
-				<form id="search_form"
-					action="${pageContext.servletContext.contextPath }/board?p=${param.p}&sec=${param.sec}"
-					method="post">
-					<select class="form-control form-control-sm" name="searchType"
-						id="searchType">
-						<option value="title">제목</option>
-						<option value="contents">본문</option>
-						<option value="name">작성자</option>
-					</select>
-					<input type="text" id="kwd" name="kwd" value="">
-					<input type="submit" value="찾기">
-				</form>
 				<table class="tbl-ex">
 					<tr>
 						<th>번호</th>
@@ -121,9 +109,7 @@
 					</ul>
 				</div>
 				<div class="bottom">
-					<a
-						href="${pageContext.request.contextPath }/board?writeform&c=0"
-						id="new-book">글쓰기</a>
+					<a href="${pageContext.request.contextPath }/board/write/0?m=${maxGroupNo }" id="new-book">글쓰기</a>
 				</div>
 			</div>
 		</div>
