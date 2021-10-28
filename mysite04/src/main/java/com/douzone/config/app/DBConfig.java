@@ -18,6 +18,7 @@ public class DBConfig {
 		//		<property name="username" value="webdb" />
 		//		<property name="password" value="webdb" />
 		//	</bean>
+		
 		dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://127.0.0.1:3307/webdb?characterEncoding=utf8");
 		dataSource.setUsername("webdb");
@@ -25,7 +26,6 @@ public class DBConfig {
 		
 		// 미리 연결해 두는 것이 100개
 		dataSource.setInitialSize(10);
-		// 
 		dataSource.setMaxActive(20);
 		return dataSource;
 	}

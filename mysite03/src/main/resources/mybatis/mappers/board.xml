@@ -61,7 +61,7 @@
 		]]>
 	</update>
 	
-	<insert id="insert" parameterType="boardvo">
+	<insert id="write" parameterType="boardvo">
 		<choose>
 			<when test="depth == null">
 				<![CDATA[

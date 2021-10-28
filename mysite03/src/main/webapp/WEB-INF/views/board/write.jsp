@@ -21,6 +21,7 @@
 					<form class="board-form" method="post"
 						action="${pageContext.request.contextPath }/board/write">
 						<!-- 글쓰고 있는 유저의 번호를 hidden으로 넘김 -->
+						${authUser.no } / ${maxGroupNo }
 						<input type="hidden" name="userno" value="${authUser.no }">
 						<input type="hidden" name="maxGroupNo" value="${maxGroupNo }">
 						

@@ -38,11 +38,8 @@ public class BoardRepository {
 		return sqlSession.selectOne("board.delete", no);
 	}
 	
-	public Long write(Long c) {
-		return sqlSession.selectOne("board.write", c);
-	}
-	
-	public BoardVo insert(BoardVo boardVo) {
+	public BoardVo write(BoardVo boardVo) {
 		return sqlSession.selectOne("board.write", boardVo);
 	}
+
 }

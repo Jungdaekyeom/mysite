@@ -60,31 +60,27 @@ public class BoardController {
 	}
 
 	// list.jsp에서 넘어옴
-	// defaultValue가 0이면, 일반 글쓰기로 들어감
-	// 1이면 답글달기로 들어감
+	// 글쓰기에서 들어온 것인지, 답글달기에서 들어온 것인지를 판단하기 위해 c 사용
 	@RequestMapping("/write/{c}")
 	public String write(@PathVariable("c") Long c,
-			@RequestParam(value = "m", required = true, defaultValue = "0") Long maxGroupNo,
-			Model model) {
-		model.addAttribute(c);
-		model.addAttribute(maxGroupNo);
+			@RequestParam(value = "m", required = true, defaultValue = "0") Long maxGroupNo, Model model) {
+		model.addAttribute("c", c);
+		model.addAttribute("maxGroupNo", maxGroupNo);
 		return "board/write";
 	}
 
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String write(@RequestParam(value = "userno", required = true) Long userNo,
 			@RequestParam(value = "title", required = true) String title,
-			@RequestParam(value = "contents", required = true) String contents, 
+			@RequestParam(value = "contents", required = true) String contents,
 			@RequestParam(value = "maxGroupNo", required = true) Long maxGroupNo) {
-		
 		BoardVo boardVo = new BoardVo();
 		boardVo.setUserNo(userNo);
 		boardVo.setTitle(title);
 		boardVo.setContents(contents);
 		boardVo.setGroupNo(maxGroupNo);
-		
-		boardService.insert(boardVo);
-		
+		boardService.write(boardVo);
+
 		// 일반 글을 쓴 이후에는 자신의 글이 최상단에 있을 것이므로, 1p 1sec으로 이동
 		return "redirect:/board?p=1&sec=1";
 	}

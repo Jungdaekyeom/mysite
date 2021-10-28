@@ -39,8 +39,9 @@ public class BoardService {
 		return boardRepository.delete(no);
 	}
 
-	public BoardVo insert(BoardVo boardVo) {
+	public BoardVo write(BoardVo boardVo) {
+		// 그룹넘버를 1 추가시킨다.
 		boardVo.setGroupNo(boardVo.getGroupNo() + 1);
-		return boardRepository.insert(boardVo);
+		return boardRepository.write(boardVo);
 	}
 }
