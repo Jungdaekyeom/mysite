@@ -21,7 +21,7 @@ pageContext.setAttribute("newLine", "\n");
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/assets/js/lightbox.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<c:if test="${not empty authUser && authUser.role=='ADMIN' }">
+<c:if test="${not empty authUser}">
 	<script type="text/javascript">
 		$(function() {
 			// 업로드 다이알로그
@@ -64,21 +64,13 @@ pageContext.setAttribute("newLine", "\n");
 					</c:if>
 				</div>
 				<ul>
-					<li><a
-						href="${pageContext.request.contextPath }/assets/gallery-examples/im1.jpg"
-						class="image"
-						style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im1.jpg')">&nbsp;</a>
-							<a href="" class="del-button" title="삭제">삭제</a>
-					<li><a
-						href="${pageContext.request.contextPath }/assets/gallery-examples/im2.jpg"
-						class="image"
-						style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im2.jpg')">&nbsp;</a>
-							<a href="" class="del-button" title="삭제">삭제</a>
-					<li><a
-						href="${pageContext.request.contextPath }/assets/gallery-examples/im3.jpg"
-						class="image"
-						style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im3.jpg')">&nbsp;</a>
-							<a href="" class="del-button" title="삭제">삭제</a>
+					<c:forEach items="${list }"	var="vo" varStatus="status">			
+						<li><a
+							href="${pageContext.request.contextPath }/assets/gallery-examples/im1.jpg"
+							class="image"
+							style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im1.jpg')">&nbsp;</a>
+								<a href="" class="del-button" title="삭제">삭제</a>
+					</c:forEach>		
 				</ul>
 			</div>
 
