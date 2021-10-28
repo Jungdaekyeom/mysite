@@ -6,7 +6,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
 
 import com.douzone.config.app.DBConfig;
-
+import com.douzone.config.app.MyBatisConfig;
 
 // <context:annotation-config />
 // <context:component-scan	base-package="com.douzone.mysite.service, com.douzone.mysite.repository, com.douzone.mysite.aspect">
@@ -17,8 +17,9 @@ import com.douzone.config.app.DBConfig;
 
 @Configuration
 @EnableAspectJAutoProxy
-@ComponentScan({"org.springframework.stereotype.Repository", "org.springframework.stereotype.Service", "org.springframework.stereotype.Component"})
-@Import({ DBConfig.class }) // 설정한 DBConfig를 땡겨옴
+@ComponentScan({ "org.springframework.stereotype.Repository", "org.springframework.stereotype.Service",
+		"org.springframework.stereotype.Component" })
+@Import({ DBConfig.class, MyBatisConfig.class }) // 설정한 DBConfig를 땡겨옴
 public class AppConfig {
 
 }
