@@ -37,9 +37,18 @@ public class BoardRepository {
 	public Long delete(Long no) {
 		return sqlSession.selectOne("board.delete", no);
 	}
-	
+
 	public BoardVo write(BoardVo boardVo) {
 		return sqlSession.selectOne("board.write", boardVo);
+	}
+
+	public BoardVo update(BoardVo boardVo) {
+		System.out.println("2번 리포지토리" + boardVo);
+		return sqlSession.selectOne("board.update", boardVo);
+	}
+
+	public BoardVo comment(BoardVo boardVo) {
+		return sqlSession.selectOne("board.comment", boardVo);
 	}
 
 }

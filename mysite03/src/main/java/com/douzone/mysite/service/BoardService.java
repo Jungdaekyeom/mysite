@@ -44,4 +44,14 @@ public class BoardService {
 		boardVo.setGroupNo(boardVo.getGroupNo() + 1);
 		return boardRepository.write(boardVo);
 	}
+
+	public BoardVo update(BoardVo boardVo) {
+		System.out.println("1번 서비스" + boardVo);
+		return boardRepository.update(boardVo);
+	}
+
+	public BoardVo comment(BoardVo boardVo) {
+		return boardRepository.comment(boardVo);
+	}
+
 }

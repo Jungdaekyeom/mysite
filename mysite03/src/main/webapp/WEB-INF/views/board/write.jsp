@@ -21,9 +21,9 @@
 					<form class="board-form" method="post"
 						action="${pageContext.request.contextPath }/board/write">
 						<!-- 글쓰고 있는 유저의 번호를 hidden으로 넘김 -->
-						${authUser.no } / ${maxGroupNo }
 						<input type="hidden" name="userno" value="${authUser.no }">
 						<input type="hidden" name="maxGroupNo" value="${maxGroupNo }">
+						<input type="hidden" name="comment" value="${c }">
 						
 						<table class="tbl-ex">
 							<tr>
@@ -48,11 +48,15 @@
 
 				<!-- 메인과 달리 답글 달 때는 모든 객체의 정보를 갖고와서 처리해줄 필요가 있으므로, 분기 -->
 				<c:if test="${c eq 1}">
-
 					<form class="board-form" method="post"
-						action="${pageContext.request.contextPath }/board/commentwrite/${no }?p=${param.p }&sec=${param.sec}">
+						action="${pageContext.request.contextPath }/board/write">
 						<!-- 글쓰고 있는 유저의 번호를 hidden으로 넘김 -->
 						<input type="hidden" name="userno" value="${authUser.no }">
+						<input type="hidden" name="comment" value="${c }">
+						<input type="hidden" name="no" value="${no }">
+						<input type="hidden" name="p" value="${param.p }">
+						<input type="hidden" name="sec" value="${param.sec}">
+						
 						<table class="tbl-ex">
 							<tr>
 								<th colspan="2">답글달기</th>

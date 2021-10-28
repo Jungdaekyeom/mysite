@@ -17,9 +17,7 @@ import com.douzone.config.app.MyBatisConfig;
 
 @Configuration
 @EnableAspectJAutoProxy
-@ComponentScan({ "org.springframework.stereotype.Repository", "org.springframework.stereotype.Service",
-		"org.springframework.stereotype.Component" })
-@Import({ DBConfig.class, MyBatisConfig.class }) // 설정한 DBConfig를 땡겨옴
+@ComponentScan({ "com.douzone.mysite.service", "com.douzone.mysite.repository", "com.douzone.mysite.aspect" })
+@Import({ DBConfig.class, MyBatisConfig.class })
 public class AppConfig {
-
 }

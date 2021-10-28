@@ -20,13 +20,11 @@ public class MyBatisConfig {
 //		<property name="configLocation" value="classpath:mybatis/configuration.xml" />
 //	</bean>
 
-	@Bean // 이게 있으면 컨테이너가 bean 생성 메시지임을 알아볼 수 있지 ㅇㅋ?
-	public SqlSessionFactory sqlSessionFactory(DataSource datasource, ApplicationContext applicationContext)
+	@Bean
+	public SqlSessionFactory sqlSessionFactory(DataSource dataSource, ApplicationContext applicationContext)
 			throws Exception {
-
 		SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
-		sqlSessionFactory.setDataSource(datasource);
-		// 리소스 형태로 받기 때문에, String을 바꿔줄 필요가 있다.
+		sqlSessionFactory.setDataSource(dataSource);
 		sqlSessionFactory.setConfigLocation(
 				applicationContext.getResource("classpath:com/douzone/mysite/config/app/mybatis/configuration.xml"));
 
@@ -39,9 +37,7 @@ public class MyBatisConfig {
 //	</bean>
 
 	@Bean
-	public SqlSession sqlsession(SqlSessionFactory sqlSessionFactory) {
-
+	public SqlSession sqlSession(SqlSessionFactory sqlSessionFactory) {
 		return new SqlSessionTemplate(sqlSessionFactory);
 	}
-
 }
