@@ -7,8 +7,12 @@ import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.douzone.mysite.service.SiteService;
+import com.douzone.mysite.vo.SiteVo;
 
 @Controller
 public class MainController {
@@ -62,17 +66,23 @@ public class MainController {
 	// 용수에게 물어보쟈!
 	@Autowired
 	ServletContext servletContext;
+	
+	@Autowired
+	private SiteService siteService;
 
 	@RequestMapping({ "", "/main" })
-	public String index() {
+	public String index(Model model) {
+
 //		// site를 내놔
-//		SiteVo site = servletContext.getAttribute("site");
+//		SiteVo site = servletContext.setAttribute("site");
 //		
 //		if(site == null) {
-//			SiteVo vo = siteService.getSite();
+//			SiteVo vo = 
 //			servletContext.setAttribute("site", vo);
 //		}
-		
+		System.out.println("주이바보겟사이트 왜 널뜸?:" + siteService.getSite());
+		model.addAttribute("site", siteService.getSite());
+
 		return "main/index";
 	}
 
