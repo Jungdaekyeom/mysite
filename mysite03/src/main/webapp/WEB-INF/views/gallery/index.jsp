@@ -59,7 +59,7 @@ pageContext.setAttribute("newLine", "\n");
 			<div id="gallery">
 				<div>
 					<h1>갤러리</h1>
-					<c:if test="${not empty authUser}">
+					<c:if test="${not empty authUser && authUser.role == 'ADMIN' }">
 						<a href="${pageContext.request.contextPath }/gallery/upload" id="upload-image">이미지 올리기</a>
 					</c:if>
 				</div>
@@ -74,7 +74,7 @@ pageContext.setAttribute("newLine", "\n");
 				</ul>
 			</div>
 
-			<c:if test="${not empty authUser}">
+			<c:if test="${not empty authUser && authUser.role == 'ADMIN' }">
 				<div id="dialog-upload-form" title="이미지 업로드" style="display: none">
 					<p class="validateTips normal">이미지와 간단한 코멘트를 입력해 주세요.</p>
 					<form action="${pageContext.request.contextPath }/gallery/upload"
