@@ -64,12 +64,12 @@ pageContext.setAttribute("newLine", "\n");
 					</c:if>
 				</div>
 				<ul>
-					<c:forEach items="${list }"	var="vo" varStatus="status">			
+					<c:forEach items="${list }"	var="vo" varStatus="status">
 						<li><a
-							href="${pageContext.request.contextPath }/assets/gallery-examples/im1.jpg"
+							href="${pageContext.request.contextPath }${vo.url }"
 							class="image"
-							style="background-image:url('${pageContext.request.contextPath }/assets/gallery-examples/im1.jpg')">&nbsp;</a>
-								<a href="" class="del-button" title="삭제">삭제</a>
+							style="background-image:url('${pageContext.request.contextPath }${vo.url}')">&nbsp;</a>
+								<a href="${pageContext.request.contextPath }/gallery/delete/${vo.no}" class="del-button" title="삭제">삭제</a>
 					</c:forEach>		
 				</ul>
 			</div>
