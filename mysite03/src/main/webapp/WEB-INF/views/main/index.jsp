@@ -19,7 +19,7 @@
 			<div id="content">
 				<div id="site-introduction">
 					<img id="profile"
-						src="${pageContext.request.contextPath }/assets/images/Luffy.jpg">
+						src="${pageContext.request.contextPath }${site.profile }">
 					<h2>${site.welcome }</h2>
 					<p>
 						${site.description }<br>

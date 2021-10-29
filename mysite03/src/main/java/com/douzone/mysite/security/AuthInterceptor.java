@@ -40,7 +40,6 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 		// method에 @Auth가 없는 경우, 즉 인증이 필요 없는 요청.
 		// 일반 유저는 여기서 반환됨.
 		if (auth == null) {
-			System.out.println("auth가 null이면 여길 지나가겠지?");
 			return true;
 		}
 

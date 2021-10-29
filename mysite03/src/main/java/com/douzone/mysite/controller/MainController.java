@@ -72,17 +72,7 @@ public class MainController {
 
 	@RequestMapping({ "", "/main" })
 	public String index(Model model) {
-
-//		// site를 내놔
-//		SiteVo site = servletContext.setAttribute("site");
-//		
-//		if(site == null) {
-//			SiteVo vo = 
-//			servletContext.setAttribute("site", vo);
-//		}
-		System.out.println("주이바보겟사이트 왜 널뜸?:" + siteService.getSite());
 		model.addAttribute("site", siteService.getSite());
-
 		return "main/index";
 	}
 
