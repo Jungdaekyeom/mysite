@@ -1,6 +1,7 @@
 package com.douzone.mysite.initializer;
 
 import javax.servlet.Filter;
+import javax.servlet.ServletRegistration.Dynamic;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -83,4 +84,12 @@ public class MySiteWebApplicationInitializer extends AbstractAnnotationConfigDis
 	protected Filter[] getServletFilters() {
 		return new Filter[] {new CharacterEncodingFilter("UTF-8", false) };
 	}
+
+	@Override
+	protected void customizeRegistration(Dynamic registration) {
+		// 핸들러가 없으면 
+		registration.setInitParameter("throwExceptionIfNoHandlerFound", "true");
+	}
+	
+	
 }
