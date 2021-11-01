@@ -31,13 +31,13 @@ public class AdminController {
 
 	@Autowired
 	private GalleryService galleryService;
-
+	
 	@RequestMapping("")
 	public String main(Model model) {
 		model.addAttribute("site", siteService.getSite());
 		return "admin/main";
 	}
-
+	
 	@RequestMapping("/main/update")
 	public String update(SiteVo site, @RequestParam("file") MultipartFile file) {
 		try {
