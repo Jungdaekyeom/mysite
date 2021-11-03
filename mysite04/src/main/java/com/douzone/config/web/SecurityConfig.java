@@ -12,15 +12,17 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import com.douzone.mysite.security.AuthInterceptor;
 import com.douzone.mysite.security.AuthUserHandlerMethodArgumentResolver;
 import com.douzone.mysite.security.LoginInterceptor;
+import com.douzone.mysite.security.LogoutInterceptor;
 
 @Configuration
 public class SecurityConfig extends WebMvcConfigurerAdapter {
 
 	// Argument Resolver
+	@Bean
 	public HandlerMethodArgumentResolver handlerMethodArgumentResolver() {
 		return new AuthUserHandlerMethodArgumentResolver();
 	}
-
+	
 	@Override
 	public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
 		argumentResolvers.add(handlerMethodArgumentResolver());
@@ -34,14 +36,14 @@ public class SecurityConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
 	public HandlerInterceptor logoutInterceptor() {
-		return new LoginInterceptor();
+		return new LogoutInterceptor();
 	}
 
 	@Bean
 	public HandlerInterceptor authInterceptor() {
 		return new AuthInterceptor();
 	}
-
+	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry
@@ -57,6 +59,6 @@ public class SecurityConfig extends WebMvcConfigurerAdapter {
 			.addPathPatterns("/**")
 			.excludePathPatterns("/user/auth")
 			.excludePathPatterns("/user/logout")
-			.excludePathPatterns("/assets/**");
+			.excludePathPatterns("/assets/**");		
 	}
 }

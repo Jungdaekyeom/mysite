@@ -12,30 +12,21 @@ import org.springframework.core.env.Environment;
 @Configuration
 @PropertySource("classpath:com/douzone/mysite/config/app/jdbc.properties")
 public class DBConfig {
-
+	
 	@Autowired
 	private Environment env;
-
-	// 03 applicationContext.xml의 아래와 같은 것
-	// <bean id="dataSource"
-	// class="org.apache.commons.dbcp.BasicDataSource">
-	// <property name="driverClassName" value="org.mariadb.jdbc.Driver" />
-	// <property name="url"
-	// value="jdbc:mysql://127.0.0.1:3307/webdb?characterEncoding=utf8" />
-	// <property name="username" value="webdb" />
-	// <property name="password" value="webdb" />
-	// </bean>
+	
 	@Bean
 	public DataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
-
 		dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
 		dataSource.setUrl(env.getProperty("jdbc.url"));
 		dataSource.setUsername(env.getProperty("jdbc.username"));
 		dataSource.setPassword(env.getProperty("jdbc.password"));
 		dataSource.setInitialSize(env.getProperty("jdbc.initialSize", Integer.class));
 		dataSource.setMaxActive(env.getProperty("jdbc.maxActive", Integer.class));
-
+		
 		return dataSource;
 	}
+	
 }

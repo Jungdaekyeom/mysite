@@ -21,6 +21,7 @@ public class GuestbookService {
 		GuestbookVo vo = new GuestbookVo();
 		vo.setNo(no);
 		vo.setPassword(password);
+		
 		return guestbookRepository.delete(vo);
 	}
 

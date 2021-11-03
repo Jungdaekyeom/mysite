@@ -5,7 +5,6 @@
 	version="3.0">
 	<display-name>mysite04</display-name>
 
-	<!-- mysite04로 변경하며 수정한 부분 확인 -->
 	<context-param>
 		<param-name>contextClass</param-name>
 		<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
@@ -39,23 +38,20 @@
 		<servlet-name>spring</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
+			<param-name>contextClass</param-name>
+			<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+		</init-param>		
+		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>com.douzone.mysite.config.WebConfig</param-value>
 		</init-param>
-		
-		<context-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>com.douzone.mysite.config.AppConfig</param-value>
-		</context-param>
 	</servlet>
-	
 	<servlet-mapping>
 		<servlet-name>spring</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>	
 	
 	<!-- 공통 에러 페이지 -->
-	<!-- 스프링에서는 에러 처리를 위해 해당 구조를 사용 -->
 	<error-page>
 		<error-code>404</error-code>
 		<location>/WEB-INF/views/error/404.jsp</location>
