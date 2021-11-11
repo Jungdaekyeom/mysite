@@ -22,6 +22,8 @@ public class BoardService {
 		return boardRepository.maxGroupNo();
 	}
 
+	// Service 이름을 지을 때는, CRUD 이름에 맞게 지어야 한다.
+	// ex) getBoardList()
 	public List<BoardVo> findAllByTen(Long page) {
 		Long startPost = (page - 1) * 10;
 		return boardRepository.findAllByTen(startPost);

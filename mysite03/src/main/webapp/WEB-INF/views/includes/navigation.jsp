@@ -20,6 +20,7 @@
 		</c:choose>
 
 		<li><a href="${pageContext.request.contextPath }/guestbook">방명록</a></li>
+		<li><a href="${pageContext.request.contextPath }/guestbook/spa">방명록(SPA)</a></li>
 		<li><a href="${pageContext.request.contextPath }/board?p=1&sec=1">게시판</a></li>
 		<li><a href="${pageContext.request.contextPath }/gallery">갤러리</a></li>
 	</ul>
