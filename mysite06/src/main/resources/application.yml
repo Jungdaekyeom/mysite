@@ -52,7 +52,7 @@ spring:
       username: webdb
       password: webdb
       driver-class-name: org.mariadb.jdbc.Driver
-      url: jdbc:mysql://127.0.0.1:3307/webdb?characterEncoding=utf8
+      url: jdbc:mysql://127.0.0.1:3306/webdb?characterEncoding=utf8
       hikari:
          minimum-idle: 10
          maximum-pool-size: 20
@@ -70,7 +70,7 @@ spring:
       username: webdb
       password: blahblha#!@0909#@!
       driver-class-name: org.mariadb.jdbc.Driver
-      url: jdbc:mysql://227.8.9.10:3307/webdb?characterEncoding=utf8
+      url: jdbc:mysql://227.8.9.10:3306/webdb?characterEncoding=utf8
       hikari:
          minimum-idle: 100
          maximum-pool-size: 200
